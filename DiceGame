@@ -59,10 +59,8 @@ def RollDice():
 
 
 def StartGame():
-  if TotalRounds < 6:
-    TotalRounds = TotalRounds + 1
-    print("Player one your up!")
-    RollDice()
+  print("Player one your up!")
+  RollDice()
 
 def Login2():
   UserInputName = input("Enter username (Player 2)")
@@ -100,5 +98,5 @@ def LoadScreen():
 
 # Starts the game
 LoadScreen()
-wait(3)
+wait(1)
 Login1()
