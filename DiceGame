@@ -1,0 +1,104 @@
+import time
+
+wait = time.sleep
+
+# Game Varibles
+OddNumbers = [1,3,5,7,9,11,13,15,17]
+EvenNumbers = [2,4,6,8,10,12,14,16,18]
+
+# Player Settings
+Player1Name = "Jack"
+Player2Name = "Ethan"
+
+Player1Password = "Password1"
+Player2Password = "Password1"
+
+TotalRounds = 0
+
+# Dice Rolling Text
+def DiceAnimation():
+  print("█▀▀█ █▀▀ █▀▀█ █▀▀▄ █░░█")
+  wait(.05)
+  print("█▄▄▀ █▀▀ █▄▄█ █░░█ █▄▄█")
+  wait(.05)
+  print("▀░▀▀ ▀▀▀ ▀░░▀ ▀▀▀░ ▄▄▄█")
+  wait(.2)
+  print("█▀▀▀ █▀▀ ▀▀█▀▀   █▀▀ █▀▀ ▀▀█▀▀")
+  wait(.05)
+  print("█░▀█ █▀▀ ░░█░░   ▀▀█ █▀▀ ░░█░░")
+  wait(.05)
+  print("▀▀▀▀ ▀▀▀ ░░▀░░   ▀▀▀ ▀▀▀ ░░▀░░")
+  wait(.2)
+  print("█▀▀█ █▀▀█ █░░ █░░ █")
+  wait(.05)
+  print("█▄▄▀ █░░█ █░░ █░░ ▀")
+  wait(.05)
+  print("▀░▀▀ ▀▀▀▀ ▀▀▀ ▀▀▀ ▄")
+
+# Dice Roll Animation
+def RollDiceAnimation():
+  print("  ____")
+  wait(.05)
+  print(" /\' .\    _____")
+  wait(0.05)
+  print("/: \___\  / .  /\ ")
+  wait(0.05)
+  print(" \' / . / /____/..\ ")
+  wait(0.05)
+  print(" \/___/  \'  '\  /")
+  wait(0.05)
+  print("          \'__'\/")
+# Main Game
+
+def RollDice():
+  wait(.2)
+  print("Rolling the dices!")
+  DiceAnimation()
+  wait(0.2)
+  RollDiceAnimation()
+
+
+def StartGame():
+  if TotalRounds < 6:
+    TotalRounds = TotalRounds + 1
+    print("Player one your up!")
+    RollDice()
+
+def Login2():
+  UserInputName = input("Enter username (Player 2)")
+  wait(.5)
+  UserInputPassword = input("Enter your password")
+  wait(.5)
+  if (UserInputName,UserInputPassword) == (Player2Name,Player2Password):
+    print("Loading game")
+    StartGame() # If it's a valid password it will end the loop and ask player two to log in
+  else:
+    print("Invalid username or password please try again")
+    wait(.5)
+    Login2() # If it isn't a valid password it will loop again
+
+def Login1():
+  UserInputName = input("Enter username (Player 1)")
+  wait(.5)
+  UserInputPassword = input("Enter your password")
+  wait(.5)
+  if (UserInputName,UserInputPassword) == (Player1Name,Player1Password):
+    print("Welcome - Player 2 Login")
+    Login2() # If it's a valid password it will end the loop and ask player two to log in
+  else:
+    print("Invalid username or password please try again")
+    wait(.5)
+    Login1() # If it isn't a valid password it will loop again
+
+#Loading screen
+def LoadScreen():
+  print("█░░░█ █▀▀ █░░ █▀▀ █▀▀█ █▀▄▀█ █▀▀")
+  wait(.05)
+  print("█▄█▄█ █▀▀ █░░ █░░ █░░█ █░▀░█ █▀▀")
+  wait(.05)
+  print("░▀░▀░ ▀▀▀ ▀▀▀ ▀▀▀ ▀▀▀▀ ▀░░░▀ ▀▀▀")
+
+# Starts the game
+LoadScreen()
+wait(3)
+Login1()
