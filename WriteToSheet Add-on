@@ -1,0 +1,18 @@
+import xlwt # Add these to the top of the last code
+from xlwt import Workbook 
+
+# Spreadsheet
+Sheet = Workbook() 
+sheet1 = Sheet.add_sheet('Sheet 1') 
+def RecordRoll(Round,PlayerName,DiceRoll,DiceRoll2,DickRoll3,TotalScore):
+  sheet1.write(Round+1, 0, ("Round #", Round)) #Round
+  sheet1.write(Round+1, 1, ("Stats for : ", PlayerName)) #PlayerName
+  sheet1.write(Round+1, 2, ("Rolled a ", DiceRoll)) #DiceRoll
+  sheet1.write(Round+1, 3, ("Rolled a ", DiceRoll2)) #DiceRoll2
+  sheet1.write(Round+1, 4, ("Rolled a ", DiceRoll3)) #DiceRoll3
+  sheet1.write(Round+1, 5, ("Total score is ", TotalScore)) #TotalScore
+
+
+  Sheet.save('xlwt example.xls') 
+
+RecordRoll(1,"PlayerName",DiceOne,Dice2,Dice3,TotalScore)
